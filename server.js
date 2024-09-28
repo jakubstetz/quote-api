@@ -13,3 +13,7 @@ app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
 app.get('/api/quotes/random', (req, res, next) => {
   res.send({quote: getRandomElement(quotes)});
 })
+
+app.get('/api/quotes', (req, res, next) => {
+  res.send(quotes);
+})
