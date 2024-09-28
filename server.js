@@ -17,9 +17,9 @@ app.get('/api/quotes/random', (req, res, next) => {
 app.get('/api/quotes', (req, res, next) => {
   const returnedArray = [];
   if (req.query.name) {
-    res.send({quotes: []});
+    for (const item of quotes) if (item.person === req.query.name) returnedArray.push(item.quote);
   } else {
     for (const item of quotes) returnedArray.push(item.quote);
-    res.send({quotes: returnedArray});
   }
+  res.send({quotes: returnedArray});
 })
