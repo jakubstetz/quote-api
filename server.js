@@ -23,3 +23,13 @@ app.get('/api/quotes', (req, res, next) => {
   }
   res.send({quotes: returnedArray});
 })
+
+app.post('/api/quotes', (req, res, next) => {
+  if (req.query.quote && req.query.person) {
+    const newObject = {quote: req.query.quote, person: req.query.person};
+    quotes.push(newObject);
+    res.status(201).send({quote: newObject});
+  } else {
+    res.status(400).send();
+  }
+})
