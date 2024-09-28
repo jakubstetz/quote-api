@@ -1,4 +1,4 @@
-# Flashcards
+# Quote API (Express.js Practice Project)
 
 ## Description
 
