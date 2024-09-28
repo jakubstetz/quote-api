@@ -15,5 +15,9 @@ app.get('/api/quotes/random', (req, res, next) => {
 })
 
 app.get('/api/quotes', (req, res, next) => {
-  res.send(quotes);
+  if (req.query.name) {
+    res.send([]);
+  } else {
+    res.send(quotes);
+  }
 })
