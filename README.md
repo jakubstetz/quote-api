@@ -1,86 +1,38 @@
-# Quote API (Express.js Practice Project)
+# 📣 Quote API
 
-## Description
+A simple Express.js API for serving and adding quotes about programming and technology. Built in the early days of my self-training in software development — part of my full-stack curriculum with Codecademy. This project constitutes my first time practicing routing, HTTP verbs, and modular Express structure.
 
-This project was completed as part of the Codecademy Full-Stack Engineer skill path; it constitutes a challenge project on the skill path.
+## 🔧 Features
 
-This project is a web API that stores and serves quotes.
+- GET `/api/quotes/random` — Fetch a random quote  
+- GET `/api/quotes` — Fetch all quotes, or filter by `person` via query param  
+- POST `/api/quotes` — Add a new quote via query parameters
 
-The purpose of this project was to practice back-end development with Express.js, specifically with routes and routers.
+Quotes are stored in-memory using a basic array structure. The API returns JSON responses and uses appropriate HTTP status codes.
 
-## Skills Practiced
+## 🧠 Concepts Practiced
 
-- *Back-End Development Using Express:*
-  - Routes.
-  - Routers.
-  - Standard HTTP verbs and status codes.
+- Express.js routing and modular routers  
+- Query parameter handling and validation  
+- JSON response shaping  
+- HTTP status codes
 
-## Original Codecademy Prompt
+## 🚀 Tech Stack
 
-"In this project, you’ll be building a small Express.js web API to store and serve different quotes about computers, coding, and technology."
+- Node.js  
+- Express.js  
 
-### Project Requirements
+## 📎 Example Response
 
-You’ve been given some starter code in the form of a front-end site and some Express.js boilerplate. You’ll use this to build several route handlers to serve up interesting quotes. As you build out your app, test out the functionality either using our front-end or with a tool like Postman. Make sure to re-run `node server.js` as you make changes to the server, and visit `localhost:4001` in the browser to interact with the front-end.
+```json
+{
+  "quote": {
+    "quote": "The best way to predict the future is to invent it.",
+    "person": "Alan Kay"
+  }
+}
+```
 
-As you work, your server at any point with Ctrl + C in the terminal, and then restart it to see new changes in its behavior.
+---
 
-In **server.js**, we’ve provided you with some imported helper functions and data:
-- A `quotes` array with some pre-populated quotes about technology. Each quote in the array has a `person` and `quote` property. You can use our array or write your own, but make sure to have at least the `person` and `quote` properties, as the front-end that we’ve provided expects each quote to have them.
-- The `getRandomElement()` function, which takes an array and returns a random element from that array.
-
-### Tasks
-
-#### Task 1 (3 on Codecademy)
-
-Set your server to listen on the PORT variable.
-
-Once you start up the server with node server.js, navigate to localhost:4001 in the browser. You’ll know things are up and running when you load the blue Quote API site in the browser.
-
-#### Task 2 (4 on Codecademy)
-
-Your API should have a GET `/api/quotes/random` route. This route should send back a random quote from the `quotes` data. The response body should have the following shape:
-`{
-  quote: {/* quote object */}
-}`
-
-
-#### Task 3 (5 on Codecademy)
-
-Your API should have a GET `/api/quotes` route. This route should return all quotes from the data if the request has no query params.
-
-If there is a query string with a `person` attribute, the route should return all quotes said by the same person. For instance, the data set has multiple quotes for Grace Hopper, so GET `/api/quotes?person=Grace Hopper` should return an array of only those quotes. If there are no quotes for the requested `person`, send back an empty array.
-
-The response body should have the following shape for all GET `/api/quotes` requests:
-`{
-  quotes: [ /* Array of requested quotes */ ]
-}`
-
-#### Task 4 (6 on Codecademy)
-
-Your API should have a POST `/api/quotes` route for adding new quotes to the data. New quotes will be passed in a query string with two properties: `quote` with the quote text itself, and `person` with the person who is credited with saying the quote.
-
-This route should verify that both properties exist in the request query string and send a `400` response if it does not. If all is well, this route handler should add the new quote object to the data array and send back a response with the following shape:
-`{
-  quote: {/* new quote object */}
-}`
-
-#### Bonus Task
-
-If you’d like to extend your app, here are some ideas to try, but you can also try out your own:
-- Add a PUT route for updating quotes in the data. This might require adding some sort of unique ID for each quote in the array in data.js.
-- Add a DELETE route for deleting quotes from the data array. As with PUT, this might require adding IDs to the data array and using req.params. For both of these ideas, you’ll be able to interact via Postman.
-- Add other data to the array, such as the year of each quote, and try to display it on the front-end.
-- Add another resource to your API in addition to quotes, such as biographical blurbs (you’ll need to find your own data for this new resource). Use Express Routers to keep your code simple and separated into different files for each router.
-
-## License
-
-MIT License
-
-Copyright (c) [2024] [Jakub Stetz]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+💭 My first ever REST API...
